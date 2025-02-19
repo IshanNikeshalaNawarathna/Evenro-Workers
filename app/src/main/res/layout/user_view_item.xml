@@ -6,18 +6,18 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintStart_toEndOf="@+id/user_image"
+        app:layout_constraintTop_toTopOf="@+id/user_image" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/user_image"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/shape_cricule" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -37,6 +37,6 @@
         android:fontFamily="@font/inter_regular"
         android:text="TextView"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5" />
+        app:layout_constraintBottom_toBottomOf="@+id/user_image"
+        app:layout_constraintStart_toEndOf="@+id/user_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
