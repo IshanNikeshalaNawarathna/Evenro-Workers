@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/event_title" />
 
     <TextView
-        android:id="@+id/event_location"
+        android:id="@+id/event_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -47,6 +47,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/event_date"
         app:layout_constraintStart_toEndOf="@+id/event_date"
         app:layout_constraintTop_toTopOf="@+id/event_date" />
+
+    <TextView
+        android:id="@+id/event_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/event_time"
+        app:layout_constraintStart_toEndOf="@+id/event_time"
+        app:layout_constraintTop_toTopOf="@+id/event_time" />
 
     <TextView
         android:id="@+id/event_price"
@@ -57,16 +67,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/event_location"
         app:layout_constraintStart_toEndOf="@+id/event_location"
         app:layout_constraintTop_toTopOf="@+id/event_location" />
-
-    <TextView
-        android:id="@+id/event_qty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/event_price"
-        app:layout_constraintStart_toEndOf="@+id/event_price"
-        app:layout_constraintTop_toTopOf="@+id/event_price" />
 
     <TextView
         android:id="@+id/organizer_name"
@@ -84,8 +84,18 @@
         android:backgroundTint="@color/back_button"
         android:tint="#FF0000"
         app:layout_constraintBottom_toBottomOf="@+id/organizer_name"
+        app:layout_constraintEnd_toEndOf="@+id/event_qty"
         app:layout_constraintTop_toTopOf="@+id/organizer_name"
-        app:srcCompat="@drawable/delete"
-        tools:layout_editor_absoluteX="350dp" />
+        app:srcCompat="@drawable/delete" />
+
+    <TextView
+        android:id="@+id/event_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/event_price"
+        app:layout_constraintStart_toEndOf="@+id/event_price"
+        app:layout_constraintTop_toTopOf="@+id/event_price" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
