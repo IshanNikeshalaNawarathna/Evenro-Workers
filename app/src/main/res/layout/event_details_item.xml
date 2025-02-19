@@ -19,9 +19,10 @@
 
     <TextView
         android:id="@+id/event_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
         android:textSize="16sp"
@@ -33,58 +34,73 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/event_image"
         app:layout_constraintStart_toEndOf="@+id/event_image"
-        app:layout_constraintTop_toBottomOf="@+id/event_title" />
-
-    <TextView
-        android:id="@+id/event_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/event_date"
-        app:layout_constraintStart_toEndOf="@+id/event_date"
-        app:layout_constraintTop_toTopOf="@+id/event_date" />
+        app:layout_constraintTop_toBottomOf="@+id/event_title"
+        app:layout_constraintVertical_bias="0.521" />
 
     <TextView
         android:id="@+id/event_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/event_time"
         app:layout_constraintStart_toEndOf="@+id/event_time"
-        app:layout_constraintTop_toTopOf="@+id/event_time" />
+        app:layout_constraintTop_toTopOf="@+id/event_time"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/event_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/inter_semi_bold"
+        android:text="TextView"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/event_date"
+        app:layout_constraintStart_toEndOf="@+id/event_date"
+        app:layout_constraintTop_toTopOf="@+id/event_date" />
 
     <TextView
         android:id="@+id/event_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/event_location"
         app:layout_constraintStart_toEndOf="@+id/event_location"
         app:layout_constraintTop_toTopOf="@+id/event_location" />
 
     <TextView
         android:id="@+id/organizer_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/inter_regular"
         android:text="TextView"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/event_title"
-        app:layout_constraintTop_toTopOf="@+id/event_title"
-        tools:layout_editor_absoluteX="181dp" />
+        app:layout_constraintEnd_toEndOf="@+id/event_qty"
+        app:layout_constraintStart_toEndOf="@+id/event_title"
+        app:layout_constraintTop_toTopOf="@+id/event_title" />
 
     <ImageButton
         android:id="@+id/event_delete_button"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/back_button"
         android:tint="#FF0000"
         app:layout_constraintBottom_toBottomOf="@+id/organizer_name"
-        app:layout_constraintEnd_toEndOf="@+id/event_qty"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/organizer_name"
         app:srcCompat="@drawable/delete" />
 
@@ -93,7 +109,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/event_price"
         app:layout_constraintStart_toEndOf="@+id/event_price"
         app:layout_constraintTop_toTopOf="@+id/event_price" />
