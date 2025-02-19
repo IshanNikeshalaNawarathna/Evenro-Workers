@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.evenro.evenroworkers.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <activity
+        android:id="@+id/allEventActivity"
+        android:name="com.evenro.evenroworkers.ui.allEvent.AllEventActivity"
+        android:label="activity_all_event"
+        tools:layout="@layout/activity_all_event" />
+    <activity
+        android:id="@+id/allUsersActivity"
+        android:name="com.evenro.evenroworkers.ui.allUser.AllUsersActivity"
+        android:label="activity_all_users"
+        tools:layout="@layout/activity_all_users" />
+</navigation>

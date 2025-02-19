@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1003671141527",
+    "project_id": "evenro-baa22",
+    "storage_bucket": "evenro-baa22.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003671141527:android:16c255a49b49b202e63dd2",
+        "android_client_info": {
+          "package_name": "com.evenro.evenroworkers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANkpN3s2mVySTUJlhJk5dA369EX1W4Jc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003671141527:android:f0a8bb659a6ffdd8e63dd2",
+        "android_client_info": {
+          "package_name": "lk.evenro.even"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANkpN3s2mVySTUJlhJk5dA369EX1W4Jc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

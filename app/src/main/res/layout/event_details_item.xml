@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/event_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shape_cricule" />
+
+    <TextView
+        android:id="@+id/event_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/inter_semi_bold"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/event_image"
+        app:layout_constraintTop_toTopOf="@+id/event_image" />
+
+    <TextView
+        android:id="@+id/event_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/event_image"
+        app:layout_constraintStart_toEndOf="@+id/event_image"
+        app:layout_constraintTop_toBottomOf="@+id/event_title" />
+
+    <TextView
+        android:id="@+id/event_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/event_date"
+        app:layout_constraintStart_toEndOf="@+id/event_date"
+        app:layout_constraintTop_toTopOf="@+id/event_date" />
+
+    <TextView
+        android:id="@+id/event_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/event_location"
+        app:layout_constraintStart_toEndOf="@+id/event_location"
+        app:layout_constraintTop_toTopOf="@+id/event_location" />
+
+    <TextView
+        android:id="@+id/event_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/event_price"
+        app:layout_constraintStart_toEndOf="@+id/event_price"
+        app:layout_constraintTop_toTopOf="@+id/event_price" />
+
+    <TextView
+        android:id="@+id/organizer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/event_title"
+        app:layout_constraintTop_toTopOf="@+id/event_title"
+        tools:layout_editor_absoluteX="181dp" />
+
+    <ImageButton
+        android:id="@+id/event_delete_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:backgroundTint="@color/back_button"
+        android:tint="#FF0000"
+        app:layout_constraintBottom_toBottomOf="@+id/organizer_name"
+        app:layout_constraintTop_toTopOf="@+id/organizer_name"
+        app:srcCompat="@drawable/delete"
+        tools:layout_editor_absoluteX="350dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

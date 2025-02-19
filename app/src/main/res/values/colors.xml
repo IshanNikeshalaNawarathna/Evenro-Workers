@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="back_button">#FFFFFFFF</color>
+    <color name="gray_color">#939ca3</color>
+    <color name="icon_color">#AAAAAA</color>
+    <color name="main_color">#f76b10</color>
+    <color name="main_color_sub">#E6FA9E68</color>
+    <color name="button_color">#20222c</color>
+    <color name="item_button">#20222c</color>
+    <color name="review_star_color">#e2b93b</color>
+    <color name="sofite_dark">#4a4d55</color>
+</resources>
