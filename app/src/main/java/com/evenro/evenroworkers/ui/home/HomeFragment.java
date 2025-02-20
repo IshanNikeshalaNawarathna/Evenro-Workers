@@ -59,10 +59,11 @@ public class HomeFragment extends Fragment {
                         String eventLocation = (String) data.get("event_location");
                         String eventQty = (String) data.get("qty");
                         String eventImage = (String) data.get("event_image");
+                        String eventCategory = (String) data.get("event_category");
 
 
                         Log.i("EVENT CODE TEST", eventID);
-                        details = new Event(eventID,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,eventImage);
+                        details = new Event(eventID,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,eventImage,eventCategory);
                         fullEventList.add(details);
                     }
                     updateRecyclerView(fullEventList);

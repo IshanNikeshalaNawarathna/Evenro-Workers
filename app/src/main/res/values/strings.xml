@@ -23,4 +23,5 @@
     <string name="menu_home">All Users</string>
     <string name="menu_gallery">All Event</string>
     <string name="menu_ticket">Ticket History</string>
+    <string name="search_title">Search here</string>
 </resources>
