@@ -35,6 +35,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         TextView event_price;
         TextView event_qty;
         ImageView event_image;
+        TextView event_category;
+
 
 
         public EventViewHolder(@NonNull View itemView) {
@@ -47,6 +49,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             event_time = itemView.findViewById(R.id.event_time);
             event_qty = itemView.findViewById(R.id.event_qty);
             event_image = itemView.findViewById(R.id.event_image);
+            event_category = itemView.findViewById(R.id.event_category);
         }
     }
 
@@ -75,6 +78,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         holder.event_time.setText(event.getEventTime());
         holder.event_location.setText(locations);
         holder.event_price.setText(event.getEventPrice());
+        holder.event_category.setText(event.getEventCategory());
         holder.event_qty.setText(event.getEventQty());
         Glide.with(holder.event_image.getContext())
                 .load(Uri.parse(event.getImageUri()))

@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public class Event implements Serializable {
 
-    private String id,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,imageUri;
+    private String id,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,imageUri,eventCategory;
 
 
     public Event() {
     }
 
-    public Event(String id, String eventName, String eventOrganizerName, String eventDate, String eventTime, String eventPrice, String eventQty, String eventLocation, String imageUri) {
+    public Event(String id, String eventName, String eventOrganizerName, String eventDate, String eventTime, String eventPrice, String eventQty, String eventLocation, String imageUri,String eventCategory) {
         this.id = id;
         this.eventName = eventName;
         this.eventOrganizerName = eventOrganizerName;
@@ -20,6 +20,7 @@ public class Event implements Serializable {
         this.eventQty = eventQty;
         this.eventLocation = eventLocation;
         this.imageUri = imageUri;
+        this.eventCategory = eventCategory;
     }
 
     public String getId() {
@@ -92,5 +93,13 @@ public class Event implements Serializable {
 
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
+    }
+
+    public String getEventCategory() {
+        return eventCategory;
+    }
+
+    public void setEventCategory(String eventCategory) {
+        this.eventCategory = eventCategory;
     }
 }

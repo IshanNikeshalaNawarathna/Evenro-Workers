@@ -1,10 +1,14 @@
 package com.evenro.evenroworkers.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.evenro.evenroworkers.R;
 import com.evenro.evenroworkers.databinding.FragmentHomeBinding;
 import com.evenro.evenroworkers.ui.adapter.EventAdapter;
+import com.evenro.evenroworkers.ui.allEvent.AllEventActivity;
 import com.evenro.evenroworkers.ui.model.Event;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,6 +46,25 @@ public class HomeFragment extends Fragment {
         View view = binding.getRoot();
         fullEventList = new ArrayList<>();
         recyclerView = view.findViewById(R.id.event_load_recycler_view);
+
+        ImageView search_button = view.findViewById(R.id.search_button);
+        search_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), AllEventActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView view_all_button = view.findViewById(R.id.view_all_button);
+        view_all_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), AllEventActivity.class);
+                startActivity(intent);
+            }
+        });
+
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.collection("event").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -59,10 +83,11 @@ public class HomeFragment extends Fragment {
                         String eventLocation = (String) data.get("event_location");
                         String eventQty = (String) data.get("qty");
                         String eventImage = (String) data.get("event_image");
+                        String eventCategory = (String) data.get("event_category");
 
 
                         Log.i("EVENT CODE TEST", eventID);
-                        details = new Event(eventID,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,eventImage);
+                        details = new Event(eventID,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,eventImage,eventCategory);
                         fullEventList.add(details);
                     }
                     updateRecyclerView(fullEventList);
