@@ -38,6 +38,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         TextView event_category;
 
 
+
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
             event_name = itemView.findViewById(R.id.event_title);

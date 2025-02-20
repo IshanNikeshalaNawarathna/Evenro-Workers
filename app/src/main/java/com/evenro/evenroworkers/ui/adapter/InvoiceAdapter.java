@@ -1,11 +1,13 @@
 package com.evenro.evenroworkers.ui.adapter;
 
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.evenro.evenroworkers.R;
 import com.evenro.evenroworkers.ui.model.InvoiceData;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -26,6 +31,7 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
         TextView event_prices;
         TextView event_qtys;
         ImageView event_images;
+        ImageView delete_button;
 
         public InvoiceViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -35,6 +41,7 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
             event_prices = itemView.findViewById(R.id.event_prices);
             event_qtys = itemView.findViewById(R.id.event_qtys);
             event_images = itemView.findViewById(R.id.event_images);
+            delete_button = itemView.findViewById(R.id.delete_button);
         }
     }
 
@@ -64,6 +71,29 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
         Glide.with(holder.event_images.getContext())
                 .load(Uri.parse(data.getImageUri()))
                 .into(holder.event_images);
+        holder.delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = data.getId();
+                Log.i("EVENT ID",id);
+                FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+                firestore.collection("invoice").document(id)
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(v.getContext(),"Delete Success",Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(v.getContext(),"Error"+e.getMessage(),Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+            }
+        });
     }
 
     @Override
