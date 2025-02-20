@@ -40,7 +40,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
         EditText email = findViewById(R.id.email);
-        EditText password = findViewById(R.id.splash_main);
+        EditText password = findViewById(R.id.location);
 
         Button signin = findViewById(R.id.sign_button);
         signin.setOnClickListener(new View.OnClickListener() {

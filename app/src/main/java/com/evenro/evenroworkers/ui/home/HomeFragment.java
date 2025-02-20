@@ -58,10 +58,11 @@ public class HomeFragment extends Fragment {
                         String eventOrganizerName = (String) data.get("organizer_name");
                         String eventLocation = (String) data.get("event_location");
                         String eventQty = (String) data.get("qty");
+                        String eventImage = (String) data.get("event_image");
 
 
                         Log.i("EVENT CODE TEST", eventID);
-                        details = new Event(eventID,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation);
+                        details = new Event(eventID,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,eventImage);
                         fullEventList.add(details);
                     }
                     updateRecyclerView(fullEventList);
@@ -77,7 +78,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(new EventAdapter(list));
     }
-    
+
 
     @Override
     public void onDestroyView() {

@@ -41,7 +41,9 @@
             android:label="@string/title_activity_dashboard"
             android:theme="@style/Theme.EvenroWorkers.NoActionBar" />
 
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDu8CVZhWC035J0nA2WA4hQLo88jV4c0Ro" />
     </application>
 
 </manifest>
