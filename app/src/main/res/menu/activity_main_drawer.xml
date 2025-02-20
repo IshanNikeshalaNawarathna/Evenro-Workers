@@ -12,6 +12,10 @@
             android:id="@+id/allEventActivity"
             android:icon="@drawable/article"
             android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/invoiceHistoryActivity"
+            android:icon="@drawable/beenhere"
+            android:title="@string/menu_ticket" />
 
     </group>
 </menu>

@@ -21,4 +21,9 @@
         android:name="com.evenro.evenroworkers.ui.allUser.AllUsersActivity"
         android:label="activity_all_users"
         tools:layout="@layout/activity_all_users" />
+    <activity
+        android:id="@+id/invoiceHistoryActivity"
+        android:name="com.evenro.evenroworkers.ui.invoiceHistory.InvoiceHistoryActivity"
+        android:label="activity_invoice_history"
+        tools:layout="@layout/activity_invoice_history" />
 </navigation>
