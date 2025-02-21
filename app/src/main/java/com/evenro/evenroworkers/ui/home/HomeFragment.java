@@ -29,6 +29,8 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -46,6 +48,7 @@ public class HomeFragment extends Fragment {
     private PieChart pieChart;
     private FirebaseFirestore db;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
@@ -54,8 +57,19 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
         pieChart = view.findViewById(R.id.pieChart);
         db = FirebaseFirestore.getInstance();
+
+        TextView user_email_home = view.findViewById(R.id.user_email_home);
+
+        TextView icon = view.findViewById(R.id.icon_images_homes);
+        String email = user.getEmail();
+        char firstCharUpper = Character.toUpperCase(email.charAt(0));
+        icon.setText(String.valueOf(firstCharUpper));
+        user_email_home.setText(user.getEmail());
 
         loadDataFromFirebase();
 
@@ -164,12 +178,6 @@ public class HomeFragment extends Fragment {
         pieChart.setCenterText("Evenro");
         pieChart.setCenterTextSize(18);
         pieChart.animateY(1000, Easing.EaseInCirc);
-
-//        Legend legend = pieChart.getLegend();
-//        legend.setTextSize(12f);
-//        legend.setFormSize(12f);
-
-
         pieChart.invalidate(); // Refresh chart
     }
 
