@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,8 +20,16 @@ import com.evenro.evenroworkers.databinding.FragmentHomeBinding;
 import com.evenro.evenroworkers.ui.adapter.EventAdapter;
 import com.evenro.evenroworkers.ui.allEvent.AllEventActivity;
 import com.evenro.evenroworkers.ui.model.Event;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -36,6 +43,8 @@ public class HomeFragment extends Fragment {
     private Map<String, Object> data;
     private FragmentHomeBinding binding;
     private Event details;
+    private PieChart pieChart;
+    private FirebaseFirestore db;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +53,13 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
+        pieChart = view.findViewById(R.id.pieChart);
+        db = FirebaseFirestore.getInstance();
+
+        loadDataFromFirebase();
+
+
         fullEventList = new ArrayList<>();
         recyclerView = view.findViewById(R.id.event_load_recycler_view);
 
@@ -87,7 +103,7 @@ public class HomeFragment extends Fragment {
 
 
                         Log.i("EVENT CODE TEST", eventID);
-                        details = new Event(eventID,eventName,eventOrganizerName,eventDate,eventTime,eventPrice,eventQty,eventLocation,eventImage,eventCategory);
+                        details = new Event(eventID, eventName, eventOrganizerName, eventDate, eventTime, eventPrice, eventQty, eventLocation, eventImage, eventCategory);
                         fullEventList.add(details);
                     }
                     updateRecyclerView(fullEventList);
@@ -97,6 +113,64 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void loadDataFromFirebase() {
+        CollectionReference eventsRef = db.collection("event");
+        CollectionReference invoicesRef = db.collection("invoice");
+        CollectionReference usersRef = db.collection("users");
+
+        eventsRef.get().addOnCompleteListener(task1 -> {
+            if (task1.isSuccessful()) {
+                int eventCount = task1.getResult().size();
+
+                invoicesRef.get().addOnCompleteListener(task2 -> {
+                    if (task2.isSuccessful()) {
+                        int invoiceCount = task2.getResult().size();
+                        Log.i("test count", String.valueOf(invoiceCount));
+                        usersRef.get().addOnCompleteListener(task3 -> {
+                            if (task3.isSuccessful()) {
+                                int userCount = task3.getResult().size();
+
+                                // Populate Pie Chart
+                                setPieChart(eventCount, invoiceCount, userCount);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    private void setPieChart(int events, int invoices, int users) {
+        ArrayList<PieEntry> entries = new ArrayList<>();
+        entries.add(new PieEntry(events, "Events"));
+        entries.add(new PieEntry(invoices, "Invoices"));
+        entries.add(new PieEntry(users, "Users"));
+
+        PieDataSet dataSet = new PieDataSet(entries, "Statistics");
+
+        ArrayList<Integer> color = new ArrayList<>();
+        color.add(getContext().getColor(R.color.color_item1));
+        color.add(getContext().getColor(R.color.color_item2));
+        color.add(getContext().getColor(R.color.color_item3));
+        dataSet.setColors(color);
+        dataSet.setValueTextSize(15f);
+
+        PieData pieData = new PieData(dataSet);
+        pieData.setDataSet(dataSet);
+        pieChart.setData(pieData);
+        new Description().setEnabled(false);
+        pieChart.setCenterText("Evenro");
+        pieChart.setCenterTextSize(18);
+        pieChart.animateY(1000, Easing.EaseInCirc);
+
+//        Legend legend = pieChart.getLegend();
+//        legend.setTextSize(12f);
+//        legend.setFormSize(12f);
+
+
+        pieChart.invalidate(); // Refresh chart
     }
 
     private void updateRecyclerView(ArrayList<Event> list) {
