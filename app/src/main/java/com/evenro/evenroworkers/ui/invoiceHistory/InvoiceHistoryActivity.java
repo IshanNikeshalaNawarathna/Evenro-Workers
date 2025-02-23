@@ -57,7 +57,7 @@ public class InvoiceHistoryActivity extends AppCompatActivity {
                         String eventTime = (String) data.get("buyer_name");
                         String ticketPrice = (String) data.get("ticket_price");
                         String eventQty = (String) data.get("qty");
-                        String eventImage = (String) data.get("event_image");
+                        String eventImage = (String) data.get("images");
 
 
                         Log.i("EVENT CODE TEST", eventID);

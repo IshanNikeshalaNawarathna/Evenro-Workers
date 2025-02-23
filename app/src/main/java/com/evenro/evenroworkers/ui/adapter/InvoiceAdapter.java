@@ -1,5 +1,7 @@
 package com.evenro.evenroworkers.ui.adapter;
 
+
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,12 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+
 import com.evenro.evenroworkers.R;
 import com.evenro.evenroworkers.ui.model.InvoiceData;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceViewHolder> {
@@ -30,7 +36,7 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
         TextView event_times;
         TextView event_prices;
         TextView event_qtys;
-        ImageView event_images;
+        ImageView event_img;
         ImageView delete_button;
 
         public InvoiceViewHolder(@NonNull View itemView) {
@@ -40,7 +46,7 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
             event_times = itemView.findViewById(R.id.event_times);
             event_prices = itemView.findViewById(R.id.event_prices);
             event_qtys = itemView.findViewById(R.id.event_qtys);
-            event_images = itemView.findViewById(R.id.event_images);
+            event_img = itemView.findViewById(R.id.event_img);
             delete_button = itemView.findViewById(R.id.delete_button);
         }
     }
@@ -61,39 +67,40 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull InvoiceAdapter.InvoiceViewHolder  holder, int position) {
+    public void onBindViewHolder(@NonNull InvoiceAdapter.InvoiceViewHolder holder, int position) {
         InvoiceData data = invoiceData.get(position);
         holder.event_name.setText(data.getEvent_name());
         holder.event_dates.setText(data.getEvent_date());
         holder.event_times.setText(data.getEvent_time());
         holder.event_prices.setText(data.getEvent_price());
         holder.event_qtys.setText(data.getEvent_qty());
-        Glide.with(holder.event_images.getContext())
+        Glide.with(holder.event_img.getContext())
                 .load(Uri.parse(data.getImageUri()))
-                .into(holder.event_images);
+                .into(holder.event_img);
         holder.delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String id = data.getId();
-                Log.i("EVENT ID",id);
+                Log.i("EVENT ID", id);
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                 firestore.collection("invoice").document(id)
                         .delete()
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(v.getContext(),"Delete Success",Toast.LENGTH_LONG).show();
+                                Toast.makeText(v.getContext(), "Delete Success", Toast.LENGTH_LONG).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(v.getContext(),"Error"+e.getMessage(),Toast.LENGTH_LONG).show();
+                                Toast.makeText(v.getContext(), "Error" + e.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
 
             }
         });
+
     }
 
     @Override
