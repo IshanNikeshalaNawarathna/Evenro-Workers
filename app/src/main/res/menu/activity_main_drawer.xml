@@ -16,6 +16,10 @@
             android:id="@+id/invoiceHistoryActivity"
             android:icon="@drawable/beenhere"
             android:title="@string/menu_ticket" />
+        <item
+            android:id="@+id/eventAddActivity"
+            android:icon="@drawable/add_to_photos"
+            android:title="@string/add_new_event" />
 
     </group>
 </menu>

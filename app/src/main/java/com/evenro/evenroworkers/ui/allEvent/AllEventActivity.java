@@ -67,7 +67,7 @@ public class AllEventActivity extends AppCompatActivity {
     }
 
     private void loadAllEvents() {
-        firestore.collection("event")
+        firestore.collection("event").orderBy("event_date", Query.Direction.ASCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

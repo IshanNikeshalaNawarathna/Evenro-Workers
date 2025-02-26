@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.location.LocationActivity"
+            android:name=".ui.addEvent.EventAddActivity"
             android:exported="false" />
         <activity
             android:name=".ui.allUser.AllUsersActivity"
