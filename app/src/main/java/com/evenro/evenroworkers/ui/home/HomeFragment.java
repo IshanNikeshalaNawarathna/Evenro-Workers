@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -96,7 +97,7 @@ public class HomeFragment extends Fragment {
         });
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        firestore.collection("event").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        firestore.collection("event").orderBy("event_date", Query.Direction.ASCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -145,8 +146,6 @@ public class HomeFragment extends Fragment {
                         usersRef.get().addOnCompleteListener(task3 -> {
                             if (task3.isSuccessful()) {
                                 int userCount = task3.getResult().size();
-
-                                // Populate Pie Chart
                                 setPieChart(eventCount, invoiceCount, userCount);
                             }
                         });
@@ -178,7 +177,7 @@ public class HomeFragment extends Fragment {
         pieChart.setCenterText("Evenro");
         pieChart.setCenterTextSize(18);
         pieChart.animateY(1000, Easing.EaseInCirc);
-        pieChart.invalidate(); // Refresh chart
+        pieChart.invalidate();
     }
 
     private void updateRecyclerView(ArrayList<Event> list) {

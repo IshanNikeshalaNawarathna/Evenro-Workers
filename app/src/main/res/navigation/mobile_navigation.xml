@@ -26,4 +26,10 @@
         android:name="com.evenro.evenroworkers.ui.invoiceHistory.InvoiceHistoryActivity"
         android:label="activity_invoice_history"
         tools:layout="@layout/activity_invoice_history" />
+    <activity
+        android:id="@+id/eventAddActivity"
+        android:name="com.evenro.evenroworkers.ui.addEvent.EventAddActivity"
+        android:label="activity_event_add"
+        tools:layout="@layout/activity_event_add"/>
+
 </navigation>
