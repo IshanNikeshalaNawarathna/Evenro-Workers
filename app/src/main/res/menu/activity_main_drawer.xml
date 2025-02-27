@@ -20,6 +20,10 @@
             android:id="@+id/eventAddActivity"
             android:icon="@drawable/add_to_photos"
             android:title="@string/add_new_event" />
+        <item
+            android:id="@+id/expireActivity"
+            android:icon="@drawable/book_online"
+            android:title="Expire Event" />
 
     </group>
 </menu>

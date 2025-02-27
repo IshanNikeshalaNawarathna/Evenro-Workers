@@ -38,4 +38,5 @@
     <string name="organizer_name">Organizer Name*</string>
     <string name="custome_loacation_spinner">Select Location</string>
     <string name="add_new_event">Add New Event</string>
+    <string name="expire_event">Expire Event</string>
 </resources>

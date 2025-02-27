@@ -31,5 +31,10 @@
         android:name="com.evenro.evenroworkers.ui.addEvent.EventAddActivity"
         android:label="activity_event_add"
         tools:layout="@layout/activity_event_add"/>
+    <activity
+        android:id="@+id/expireActivity"
+        android:name="com.evenro.evenroworkers.ui.allEvent.ExpireActivity"
+        android:label="activity_expire"
+        tools:layout="@layout/activity_expire" />
 
 </navigation>

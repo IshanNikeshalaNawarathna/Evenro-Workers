@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -11,44 +11,55 @@
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/event_img"
+            android:id="@+id/expire_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/shape_cricule" />
     </FrameLayout>
 
     <TextView
-        android:id="@+id/event_name"
+        android:id="@+id/expire_event_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/expire_event_delete_button"
         app:layout_constraintStart_toEndOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout" />
 
     <TextView
-        android:id="@+id/event_dates"
+        android:id="@+id/expire_event_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/inter_semi_bold"
         android:text="TextView"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
-        app:layout_constraintStart_toEndOf="@+id/frameLayout" />
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/event_organizer_name" />
+
 
     <TextView
-        android:id="@+id/event_times"
+        android:id="@+id/expire_event_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/inter_semi_bold"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/expire_event_date"
+        app:layout_constraintStart_toEndOf="@+id/expire_event_date"
+        app:layout_constraintTop_toTopOf="@+id/expire_event_date" />
+
+    <TextView
+        android:id="@+id/expire_event_organizer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,44 +68,16 @@
         android:text="TextView"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/frameLayout"
-        app:layout_constraintTop_toBottomOf="@+id/event_name" />
-
-    <TextView
-        android:id="@+id/event_prices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/inter_semi_bold"
-        android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/event_dates"
-        app:layout_constraintStart_toEndOf="@+id/event_dates"
-        app:layout_constraintTop_toTopOf="@+id/event_dates" />
-
-    <TextView
-        android:id="@+id/event_qtys"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/inter_semi_bold"
-        android:gravity="start"
-        android:text="TextView"
-        android:textColor="@color/main_color"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/event_prices"
-        app:layout_constraintEnd_toEndOf="@+id/event_name"
-        app:layout_constraintStart_toEndOf="@+id/event_prices"
-        app:layout_constraintTop_toTopOf="@+id/event_prices" />
+        app:layout_constraintTop_toBottomOf="@+id/expire_event_name" />
 
     <ImageView
         android:id="@+id/expire_event_delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:tint="#FF0000"
-        app:layout_constraintBottom_toBottomOf="@+id/event_qtys"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/event_name"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>

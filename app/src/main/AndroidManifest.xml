@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EvenroWorkers"
         tools:targetApi="31">
+        <activity
+            android:name=".EmptyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.allEvent.ExpireActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.invoiceHistory.InvoiceHistoryActivity"
             android:exported="false" />
@@ -57,7 +64,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>
