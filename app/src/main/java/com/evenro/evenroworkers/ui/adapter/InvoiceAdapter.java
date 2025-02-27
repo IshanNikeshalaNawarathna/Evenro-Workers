@@ -1,7 +1,6 @@
 package com.evenro.evenroworkers.ui.adapter;
 
 
-import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,9 +23,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.net.URI;
-import java.util.ArrayList;
-
 public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceViewHolder> {
 
     class InvoiceViewHolder extends RecyclerView.ViewHolder {
@@ -47,7 +43,7 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
             event_prices = itemView.findViewById(R.id.event_prices);
             event_qtys = itemView.findViewById(R.id.event_qtys);
             event_img = itemView.findViewById(R.id.event_img);
-            delete_button = itemView.findViewById(R.id.delete_button);
+            delete_button = itemView.findViewById(R.id.expire_event_delete_button);
         }
     }
 
