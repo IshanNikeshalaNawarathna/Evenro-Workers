@@ -3,6 +3,9 @@ package com.evenro.evenroworkers.ui.invoiceHistory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +21,7 @@ import com.evenro.evenroworkers.EmptyActivity;
 import com.evenro.evenroworkers.InvoiceEmptyActivity;
 import com.evenro.evenroworkers.R;
 import com.evenro.evenroworkers.ui.adapter.InvoiceAdapter;
+import com.evenro.evenroworkers.ui.home.HomeFragment;
 import com.evenro.evenroworkers.ui.model.InvoiceData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,7 +54,6 @@ public class InvoiceHistoryActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(fullEventList !=null){
             fullEventList = new ArrayList<>();
             recyclerView = findViewById(R.id.invoice_history_recycler_view);
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
@@ -81,18 +84,15 @@ public class InvoiceHistoryActivity extends AppCompatActivity {
 
 
             });
-        }else{
-            Intent intent = new Intent(InvoiceHistoryActivity.this, InvoiceEmptyActivity.class);
-            startActivity(intent);
-        }
 
 
     }
 
     private void updateRecycler(ArrayList<InvoiceData> list) {
-        if (list.isEmpty()) {
-
-        } else {
+        if(list.isEmpty()){
+            Intent intent = new Intent(InvoiceHistoryActivity.this, InvoiceEmptyActivity.class);
+            startActivity(intent);
+        }else {
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
             recyclerView.setAdapter(new InvoiceAdapter(list));
         }

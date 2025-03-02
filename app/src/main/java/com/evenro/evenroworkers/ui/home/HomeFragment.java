@@ -58,15 +58,23 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        pieChart = view.findViewById(R.id.pieChart);
+        pieChart = getView().findViewById(R.id.pieChart);
         db = FirebaseFirestore.getInstance();
 
-        TextView user_email_home = view.findViewById(R.id.user_email_home);
+        TextView user_email_home = getView().findViewById(R.id.user_email_home);
 
-        TextView icon = view.findViewById(R.id.icon_images_homes);
+        TextView icon = getView().findViewById(R.id.icon_images_homes);
         String email = user.getEmail();
         char firstCharUpper = Character.toUpperCase(email.charAt(0));
         icon.setText(String.valueOf(firstCharUpper));
@@ -76,22 +84,22 @@ public class HomeFragment extends Fragment {
 
 
         fullEventList = new ArrayList<>();
-        recyclerView = view.findViewById(R.id.event_load_recycler_view);
+        recyclerView = getView().findViewById(R.id.event_load_recycler_view);
 
-        ImageView search_button = view.findViewById(R.id.search_button);
+        ImageView search_button = getView().findViewById(R.id.search_button);
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), AllEventActivity.class);
+                Intent intent = new Intent(getView().getContext(), AllEventActivity.class);
                 startActivity(intent);
             }
         });
 
-        TextView view_all_button = view.findViewById(R.id.view_all_button);
+        TextView view_all_button = getView().findViewById(R.id.view_all_button);
         view_all_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), AllEventActivity.class);
+                Intent intent = new Intent(getView().getContext(), AllEventActivity.class);
                 startActivity(intent);
             }
         });
@@ -127,7 +135,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        return view;
+
     }
 
     private void loadDataFromFirebase() {
