@@ -67,6 +67,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_regular"
             android:hint="@string/input_plaesholder2"
+            android:inputType="text|textPassword"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 

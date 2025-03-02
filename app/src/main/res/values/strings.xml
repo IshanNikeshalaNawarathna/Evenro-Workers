@@ -39,4 +39,7 @@
     <string name="custome_loacation_spinner">Select Location</string>
     <string name="add_new_event">Add New Event</string>
     <string name="expire_event">Expire Event</string>
+    <string name="invoice_history_empty">Invoice History</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

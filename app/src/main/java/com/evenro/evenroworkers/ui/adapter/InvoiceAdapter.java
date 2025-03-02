@@ -1,6 +1,7 @@
 package com.evenro.evenroworkers.ui.adapter;
 
 
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import com.evenro.evenroworkers.R;
+import com.evenro.evenroworkers.ui.invoiceHistory.InvoiceHistoryActivity;
 import com.evenro.evenroworkers.ui.model.InvoiceData;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -85,6 +87,8 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.InvoiceV
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(v.getContext(), "Delete Success", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(v.getContext(), InvoiceHistoryActivity.class);
+                                v.getContext().startActivity(intent);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
