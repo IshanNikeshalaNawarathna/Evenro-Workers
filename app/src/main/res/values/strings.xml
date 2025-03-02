@@ -12,13 +12,34 @@
     <string name="input_plaesholder1">Type your Email</string>
     <string name="input_plaesholder2">Type your Password</string>
     <string name="singIn_button">SIGN IN</string>
-    <string name="home_welcome_title">Welcome</string>
+    <string name="home_welcome_title">Welcome Admin!</string>
     <string name="home_view_all_button">View all</string>
     <string name="home_all_event">Event</string>
     <string name="all_event_title">All Event</string>
     <string name="all_user_title">All User</string>
+    <string name="invoice_history_title">Ticket History</string>
 
 
     <string name="menu_home">All Users</string>
     <string name="menu_gallery">All Event</string>
+    <string name="menu_ticket">Ticket History</string>
+    <string name="search_title">Search here</string>
+    <string name="music">Music</string>
+    <string name="create_new_event">Create New Event</string>
+    <string name="event_details">Event Details</string>
+    <string name="event_name">Event Name*</string>
+    <string name="mobile_number">Mobile Number*</string>
+    <string name="event_time">Event Time*</string>
+    <string name="event_date">Event Date*</string>
+    <string name="event_price">Event Price*</string>
+    <string name="quantity">Quantity*</string>
+    <string name="event_description">Event Description*</string>
+    <string name="publish_event">PUBLISH EVENT</string>
+    <string name="organizer_name">Organizer Name*</string>
+    <string name="custome_loacation_spinner">Select Location</string>
+    <string name="add_new_event">Add New Event</string>
+    <string name="expire_event">Expire Event</string>
+    <string name="invoice_history_empty">Invoice History</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

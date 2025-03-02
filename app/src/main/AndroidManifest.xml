@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +15,28 @@
         android:theme="@style/Theme.EvenroWorkers"
         tools:targetApi="31">
         <activity
-            android:name=".ui.location.LocationActivity"
+            android:name=".InvoiceEmptyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmptyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.allEvent.ExpireActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.invoiceHistory.InvoiceHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.addEvent.EventAddActivity"
             android:exported="false" />
         <activity
             android:name=".ui.allUser.AllUsersActivity"
@@ -32,15 +55,18 @@
             android:exported="false"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/Theme.EvenroWorkers.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDu8CVZhWC035J0nA2WA4hQLo88jV4c0Ro" />
+
+        <service
+            android:name=".ui.model.MessagingService"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </activity>
+        </service>
     </application>
 
 </manifest>

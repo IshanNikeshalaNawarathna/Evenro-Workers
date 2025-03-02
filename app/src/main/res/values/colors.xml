@@ -9,4 +9,9 @@
     <color name="item_button">#20222c</color>
     <color name="review_star_color">#e2b93b</color>
     <color name="sofite_dark">#4a4d55</color>
+
+    <color name="color_item1">#FFC107</color>
+    <color name="color_item2">#00BCD4</color>
+    <color name="color_item3">#43A047</color>
+
 </resources>

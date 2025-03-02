@@ -1,4 +1,4 @@
-package com.evenro.evenroworkers.ui.location;
+package com.evenro.evenroworkers.ui.errorPage;
 
 import android.os.Bundle;
 
@@ -10,13 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.evenro.evenroworkers.R;
 
-public class LocationActivity extends AppCompatActivity {
+public class OfflineModeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_location);
+        setContentView(R.layout.activity_offline_mode);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
