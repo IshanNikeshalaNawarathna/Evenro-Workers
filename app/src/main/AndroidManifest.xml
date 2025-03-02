@@ -15,6 +15,9 @@
         android:theme="@style/Theme.EvenroWorkers"
         tools:targetApi="31">
         <activity
+            android:name=".InvoiceEmptyActivity"
+            android:exported="false" />
+        <activity
             android:name=".EmptyActivity"
             android:exported="false" />
         <activity
