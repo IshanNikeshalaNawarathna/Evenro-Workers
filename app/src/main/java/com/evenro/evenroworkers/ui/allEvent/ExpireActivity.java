@@ -112,7 +112,13 @@ public class ExpireActivity extends AppCompatActivity {
     }
 
     private void updateRecycler(ArrayList<ExpireEvent> list) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(new ExpireEventAdapter(list));
+
+        if(list.isEmpty()){
+            Intent intent = new Intent(ExpireActivity.this,EmptyActivity.class);
+            startActivity(intent);
+        }else{
+            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+            recyclerView.setAdapter(new ExpireEventAdapter(list));
+        }
     }
 }
